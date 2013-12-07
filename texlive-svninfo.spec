@@ -6,7 +6,7 @@
 # catalog-version 0.7.4
 Name:		texlive-svninfo
 Version:	0.7.4
-Release:	5
+Release:	6
 Summary:	Typeset Subversion keywords
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/svninfo
