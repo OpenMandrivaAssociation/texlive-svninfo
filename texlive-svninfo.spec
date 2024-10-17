@@ -3,7 +3,7 @@ Version:	62157
 Release:	2
 Summary:	Typeset Subversion keywords
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/svninfo
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/svninfo
 License:	LPPL1
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/svninfo.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/svninfo.doc.r%{version}.tar.xz
