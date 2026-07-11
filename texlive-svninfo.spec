@@ -1,51 +1,23 @@
-Name:		texlive-svninfo
-Version:	62157
-Release:	2
+%global tl_name svninfo
+%global tl_revision 62157
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.7.4
+Release:	%{tl_revision}.1
 Summary:	Typeset Subversion keywords
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/svninfo
-License:	LPPL1
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/svninfo.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/svninfo.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/svninfo.source.r%{version}.tar.xz
+License:	lppl1
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/svninfo.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/svninfo.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/svninfo.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-A package for incorporating the values of Subversion keywords
-into typeset documents. Information about Subversion (a
-replacement for CVS) is available from
-http://subversion.tigris.org/.
+A package for incorporating the values of Subversion keywords into
+typeset documents. Information about Subversion (a replacement for CVS)
+is available from the project's home site.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/latex/svninfo/svninfo.cfg
-%{_texmfdistdir}/tex/latex/svninfo/svninfo.sty
-%doc %{_texmfdistdir}/doc/latex/svninfo/README
-%doc %{_texmfdistdir}/doc/latex/svninfo/svninfo.init
-%doc %{_texmfdistdir}/doc/latex/svninfo/svninfo.pdf
-#- source
-%doc %{_texmfdistdir}/source/latex/svninfo/Makefile
-%doc %{_texmfdistdir}/source/latex/svninfo/svninfo.dtx
-%doc %{_texmfdistdir}/source/latex/svninfo/svninfo.ins
-
-#-----------------------------------------------------------------------
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
